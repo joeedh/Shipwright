@@ -43,12 +43,12 @@ set(CMAKE_CONFIGURATION_TYPES
 ################################################################################
 if(MSVC)
     # remove default flags provided with CMake for MSVC
-    set(CMAKE_C_FLAGS "")
-    set(CMAKE_C_FLAGS_DEBUG "")
-    set(CMAKE_C_FLAGS_RELEASE "")
-    set(CMAKE_CXX_FLAGS "")
-    set(CMAKE_CXX_FLAGS_DEBUG "")
-    set(CMAKE_CXX_FLAGS_RELEASE "")
+    #set(CMAKE_C_FLAGS "")
+    #set(CMAKE_C_FLAGS_DEBUG "")
+    #set(CMAKE_C_FLAGS_RELEASE "")
+    #set(CMAKE_CXX_FLAGS "")
+    #set(CMAKE_CXX_FLAGS_DEBUG "")
+    #set(CMAKE_CXX_FLAGS_RELEASE "")
 endif()
 
 ################################################################################
@@ -59,7 +59,7 @@ if(MSVC)
     set(CMAKE_EXE_LINKER_FLAGS "")
     set(CMAKE_MODULE_LINKER_FLAGS "")
     set(CMAKE_SHARED_LINKER_FLAGS "")
-    set(CMAKE_STATIC_LINKER_FLAGS "")
+    #set(CMAKE_STATIC_LINKER_FLAGS "")
     set(CMAKE_EXE_LINKER_FLAGS_DEBUG "${CMAKE_EXE_LINKER_FLAGS}")
     set(CMAKE_MODULE_LINKER_FLAGS_DEBUG "${CMAKE_MODULE_LINKER_FLAGS}")
     set(CMAKE_SHARED_LINKER_FLAGS_DEBUG "${CMAKE_SHARED_LINKER_FLAGS}")
@@ -210,6 +210,8 @@ set(ALL_FILES
     ${soh__}
     ${soh__Extractor}
     ${src__}
+    "src/save/save.h"
+    "src/save/save.cpp"
 )
 
 ################################################################################
@@ -249,7 +251,7 @@ endif()
 ################################################################################
 # MSVC runtime library
 ################################################################################
-if (CMAKE_SYSTEM_NAME STREQUAL "Windows")
+if (false) #CMAKE_SYSTEM_NAME STREQUAL "Windows")
 	get_property(MSVC_RUNTIME_LIBRARY_DEFAULT TARGET ${PROJECT_NAME} PROPERTY MSVC_RUNTIME_LIBRARY)
 	if("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "x64")
 		string(CONCAT "MSVC_RUNTIME_LIBRARY_STR"
@@ -446,7 +448,7 @@ if(MSVC)
             ${DEFAULT_CXX_DEBUG_INFORMATION_FORMAT};
             ${DEFAULT_CXX_EXCEPTION_HANDLING}
         )
-        target_compile_options(${PROJECT_NAME} PRIVATE  $<$<CONFIG:Debug>:/ZI;>)
+        #target_compile_options(${PROJECT_NAME} PRIVATE  $<$<CONFIG:Debug>:/ZI;>)
     elseif("${CMAKE_VS_PLATFORM_NAME}" STREQUAL "Win32")
         target_compile_options(${PROJECT_NAME} PRIVATE
             $<$<CONFIG:Debug>:
@@ -474,8 +476,8 @@ if(MSVC)
                 /OPT:REF;
                 /OPT:ICF;
                 /INCREMENTAL:NO;
-                /FORCE:MULTIPLE
             >
+            /FORCE:MULTIPLE
             /MANIFEST:NO;
             /DEBUG;
             /SUBSYSTEM:WINDOWS
@@ -489,7 +491,6 @@ if(MSVC)
                 /OPT:REF;
                 /OPT:ICF;
                 /INCREMENTAL:NO;
-                /FORCE:MULTIPLE
             >
             /MANIFEST:NO;
             /DEBUG;

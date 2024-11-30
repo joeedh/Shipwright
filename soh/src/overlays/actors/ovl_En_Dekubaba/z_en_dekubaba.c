@@ -534,7 +534,6 @@ void EnDekubaba_Grow(EnDekubaba* this, PlayState* play) {
     if (this->timer < 10) {
         Math_ApproachS(&this->actor.shape.rot.y, Math_Vec3f_Yaw(&this->actor.home.pos, &player->actor.world.pos), 2,
                        0xE38);
-        if (headShiftZ) {} // One way of fake-matching
     }
 
     this->actor.world.pos.y = this->actor.home.pos.y + (headDistVertical * this->size);
