@@ -186,7 +186,7 @@ static const ALIGN_ASSET(2) char gMorphaDL_007BF8[] = dgMorphaDL_007BF8;
 #define dgMorphaVtx_006938 "__OTR__objects/object_mo/gMorphaVtx_006938"
 static const ALIGN_ASSET(2) char gMorphaVtx_006938[] = dgMorphaVtx_006938;
 
-#define dgMorphaVtx_007BB8 "__OTR__objects/object_mo/gMorphaVtx_007BB8"
-static const ALIGN_ASSET(2) char gMorphaVtx_007BB8[] = dgMorphaVtx_007BB8;
+#define dgMorphaVtx_006A18 "__OTR__objects/object_mo/gMorphaVtx_006A18"
+static const ALIGN_ASSET(2) char gMorphaVtx_006A18[] = dgMorphaVtx_006A18;
 
 #endif // OBJECTS_OBJECT_MO_H

@@ -1043,18 +1043,24 @@ void InitTTSBank() {
     initData->Format = RESOURCE_FORMAT_BINARY;
     initData->Type = static_cast<uint32_t>(Ship::ResourceType::Json);
     initData->ResourceVersion = 0;
+    uintptr_t owner = 0ULL;
     
-    sceneMap = std::static_pointer_cast<Ship::Json>(
-        Ship::Context::GetInstance()->GetResourceManager()->LoadResource("accessibility/texts/scenes" + languageSuffix, true, initData))->Data;
+    sceneMap = std::static_pointer_cast<Ship::Json>(Ship::Context::GetInstance()->GetResourceManager()->LoadResource(
+                                                 "accessibility/texts/scenes" + languageSuffix, owner, true, initData))
+            ->Data;
 
-    miscMap = std::static_pointer_cast<Ship::Json>(
-        Ship::Context::GetInstance()->GetResourceManager()->LoadResource("accessibility/texts/misc" + languageSuffix, true, initData))->Data;
+    miscMap = std::static_pointer_cast<Ship::Json>(Ship::Context::GetInstance()->GetResourceManager()->LoadResource(
+                                                 "accessibility/texts/misc" + languageSuffix, owner, true, initData))
+                  ->Data;
 
     kaleidoMap = std::static_pointer_cast<Ship::Json>(
-        Ship::Context::GetInstance()->GetResourceManager()->LoadResource("accessibility/texts/kaleidoscope" + languageSuffix, true, initData))->Data;
+                     Ship::Context::GetInstance()->GetResourceManager()->LoadResource(
+                         "accessibility/texts/kaleidoscope" + languageSuffix, owner, true, initData))
+                     ->Data;
 
-    fileChooseMap = std::static_pointer_cast<Ship::Json>(
-        Ship::Context::GetInstance()->GetResourceManager()->LoadResource("accessibility/texts/filechoose" + languageSuffix, true, initData))->Data;
+    fileChooseMap = std::static_pointer_cast<Ship::Json>(Ship::Context::GetInstance()->GetResourceManager()->LoadResource(
+                                                 "accessibility/texts/filechoose" + languageSuffix, owner, true, initData))
+            ->Data;
 }
 
 void RegisterOnSetGameLanguageHook() {
